@@ -5,15 +5,15 @@
   "type": "commonjs",
   "main": "build/server.js",
   "engines": {
-    "node":"18.x"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
-    "start":"node build/server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false",
-    "build":"tsc"
+    "start": "node build/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false",
+    "build": "tsc"
   },
-  "author": "shahriar sajeeb",
+  "author": "vishwa cloud lab",
   "license": "ISC",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -24,7 +24,7 @@
     "@types/node": "^20.4.0",
     "@types/socket.io": "^3.0.2",
     "@types/validator": "^13.7.17",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.39.0",
     "cookie-parser": "^1.4.6",
