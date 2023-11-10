@@ -8,6 +8,7 @@ import {
   logoutUser,
   registrationUser,
   socialAuth,
+  updateAccessToken,
   updatePassword,
   updateProfilePicture,
   updateUserInfo,
