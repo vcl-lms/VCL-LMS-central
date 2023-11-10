@@ -94,8 +94,8 @@ const courseSchema = new Schema<ICourse>({
     required: true,
   },
   categories:{
-    type:String,
-    required: true,
+    type:String
+    // required: true,
   },
   price: {
     type: Number,
