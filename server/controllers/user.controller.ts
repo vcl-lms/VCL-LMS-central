@@ -75,7 +75,7 @@ export const registrationUser = CatchAsyncError(
     }
   }
 );
-
+//JWT verification part
 interface IActivationToken {
   token: string;
   activationCode: string;
