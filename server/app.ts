@@ -21,7 +21,9 @@ app.use(cookieParser());
 // cors => cross origin resource sharing
 app.use(
   cors({
-    origin: ["https://vcl-client-nine.vercel.app"],
+    // origin: process.env.ORIGIN,
+    origin: ['http://localhost:3000'],
+    // origin: ["https://vcl-client-nine.vercel.app"],
     credentials: true,
   })
 );
