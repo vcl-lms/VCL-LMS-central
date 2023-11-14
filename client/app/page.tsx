@@ -18,9 +18,9 @@ const Page: FC<Props> = (props) => {
   return (
     <div>
       <Heading
-        title="ELearning"
-        description="ELearning is a platform for students to learn and get help from teachers"
-        keywords="Prograaming,MERN,Redux,Machine Learning"
+        title="Vishwa Cloud Lab"
+        description="Vishwa Cloud Lab is a platform for learners to grasp the requried skills to be in ahead in the race !"
+        keywords="Programming, Cloud Computing, cloud computing, security"
       />
       <Header
         open={open}
