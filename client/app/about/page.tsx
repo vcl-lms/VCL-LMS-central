@@ -15,9 +15,9 @@ const Page = (props: Props) => {
   return (
     <div>
       <Heading
-        title="About us - Elearning"
-        description="Elearning is a learning management system for helping programmers."
-        keywords="programming,mern"
+        title="About us - Vishwa Cloud Lab"
+        description="Vishwa Cloud Lab is a learning management system for helping programmers, tech enthusiast."
+        keywords="programming,mern, security, linux, cloud, cloud computing, administration"
       />
       <Header
         open={open}

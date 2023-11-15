@@ -13,9 +13,9 @@ const page = ({params}:any) => {
   return (
     <div>
         <Heading
-         title="Elearning - Admin"
-         description="ELearning is a platform for students to learn and get help from teachers"
-         keywords="Prograaming,MERN,Redux,Machine Learning"
+         title="Vishwa Cloud Lab - Admin"
+         description="Vishwa Cloud Lab is a platform for learners to learn and get help from leading tech instructors"
+         keywords="Programming,MERN,Redux,Machine Learning, security, linux, cloud computing, cloud administration, cloud security,cyber security"
         />
         <div className="flex">
             <div className="1500px:w-[16%] w-1/5">
