@@ -74,7 +74,7 @@ const CourseDetails = ({
 
             <br />
             <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
-              What you will learn from this course?
+              What you will learn from this course ?
             </h1>
             <div>
               {data.benefits?.map((item: any, index: number) => (
@@ -97,7 +97,7 @@ const CourseDetails = ({
               <br />
             </div>
             <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
-              What are the prerequisites for starting this course?
+              What are the prerequisites for starting this course ?
             </h1>
             {data.prerequisites?.map((item: any, index: number) => (
               <div className="w-full flex 800px:items-center py-2" key={index}>
@@ -218,10 +218,10 @@ const CourseDetails = ({
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
                 <h1 className="pt-5 text-[25px] text-black dark:text-white">
-                  {data.price === 0 ? "Free" : data.price + "$"}
+                  {data.price === 0 ? "Free" : "Rs " + data.price}
                 </h1>
                 <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
-                  {data.estimatedPrice}$
+                  {data.estimatedPrice}Rs
                 </h5>
 
                 <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
@@ -241,7 +241,7 @@ const CourseDetails = ({
                     className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={handleOrder}
                   >
-                    Buy Now {data.price}$
+                    Buy Now {data.price}Rs
                   </div>
                 )}
               </div>

@@ -55,7 +55,7 @@ const Login: FC<Props> = ({ setRoute, setOpen,refetch }) => {
 
   return (
     <div className="w-full">
-      <h1 className={`${styles.title}`}>Login with ELearning</h1>
+      <h1 className={`${styles.title}`}>Login to VCL</h1>
       <form onSubmit={handleSubmit}>
         <label className={`${styles.label}`} htmlFor="email">
           Enter your Email
@@ -120,7 +120,7 @@ const Login: FC<Props> = ({ setRoute, setOpen,refetch }) => {
           <AiFillGithub size={30} className="cursor-pointer ml-2" onClick={() => signIn("github")} />
         </div>
         <h5 className="text-center pt-4 font-Poppins text-[14px]">
-          Not have any account?{" "}
+          Not have any account ?{" "}
           <span
             className="text-[#2190ff] pl-1 cursor-pointer"
             onClick={() => setRoute("Sign-Up")}
