@@ -225,7 +225,7 @@ const CourseDetails = ({
                 </h5>
 
                 <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
-                  {discountPercentengePrice}% Off
+                  {discountPercentengePrice} % Off
                 </h4>
               </div>
               <div className="flex items-center">
@@ -238,10 +238,10 @@ const CourseDetails = ({
                   </Link>
                 ) : (
                   <div
-                    className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
+                    className={`${styles.button} !w-[200px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={handleOrder}
                   >
-                    Buy Now {data.price}Rs
+                    Buy Now {"Rs " + data.price}
                   </div>
                 )}
               </div>

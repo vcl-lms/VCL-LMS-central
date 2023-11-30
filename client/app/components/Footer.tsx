@@ -73,7 +73,7 @@ const Footer = (props: Props) => {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="https://www.youtube.com/channel/UCHz6Sne9splmvm-q2w1_HWQ"
+                  href="https://www.youtube.com/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Youtube
@@ -81,7 +81,7 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="https://www.instagram.com/shahriar_sajeeb_/"
+                  href="https://www.instagram.com/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Instagram
@@ -89,10 +89,10 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="https://www.github.com/shahriarsajeeb"
+                  href="https://www.github.com/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
-                  github
+                  GitHub
                 </Link>
               </li>
             </ul>
@@ -100,22 +100,22 @@ const Footer = (props: Props) => {
           <div>
             <h3 className="text-[20px] font-[600] text-black dark:text-white pb-3">Contact Info</h3>
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Call Us: 1-885-665-2022
+            Call Us: 9999999999
             </p>
            
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Address: +7011 Vermont Ave, Los Angeles, CA 90044
+            Address: Marathalli, Bengaluru
             </p>
          
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white  pb-2">
-            Mail Us: hello@elearning.com
+            Mail Us: support@vcl.com
             </p>
             
           </div>
         </div>
         <br />
         <p className="text-center text-black dark:text-white">
-          Copyright © 2023 ELearning | All Rights Reserved
+          Copyright © 2023 Vishwa Cloud Lab | All Rights Reserved
         </p>
       </div>
       <br />
