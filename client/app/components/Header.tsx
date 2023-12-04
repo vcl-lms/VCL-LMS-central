@@ -111,7 +111,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                   onClick={() => setOpenSidebar(true)}
                 />
               </div>
-              {userData ? (
+              {/* {userData ? (
                 <Link href={"/profile"}>
                   <Image
                     src={userData?.user.avatar ? userData.user.avatar.url : avatar}
@@ -128,7 +128,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                   className="hidden 800px:block cursor-pointer dark:text-white text-black"
                   onClick={() => setOpen(true)}
                 />
-              )}
+              )} */}
             </div>
           </div>
         </div>
