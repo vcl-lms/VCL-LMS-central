@@ -12,6 +12,7 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
+
 type Props = {
   data: any;
   stripePromise: any;
@@ -27,7 +28,7 @@ const CourseDetails = ({
   setRoute,
   setOpen: openAuthModal,
 }: Props) => {
-  const { data: userData,refetch } = useLoadUserQuery(undefined, {});
+  const { data: userData, refetch } = useLoadUserQuery(undefined, {});
   const [user, setUser] = useState<any>();
   const [open, setOpen] = useState(false);
 
@@ -120,6 +121,7 @@ const CourseDetails = ({
             </div>
             <br />
             <br />
+
             {/* course description */}
             <div className="w-full">
               <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
@@ -213,6 +215,8 @@ const CourseDetails = ({
               )}
             </div>
           </div>
+
+
           <div className="w-full 800px:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
