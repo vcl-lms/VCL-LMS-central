@@ -23,19 +23,6 @@ const SideBarProfile: FC<Props> = ({
   setActive,
   logOutHandler,
 }) => {
-    const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Set this state based on your actual authentication status
-
-  const handleLogout = () => {
-    // Redirect to the home page
-    router.push("/");
-    
-    //  logout logic
-    logOutHandler();
-
-    // After logging out, set the isLoggedIn state to false
-    setIsLoggedIn(false);
-  };
   return (
     <div className="w-full">
       <div
@@ -93,7 +80,7 @@ const SideBarProfile: FC<Props> = ({
       <div
         className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
           }`}
-          onClick={() => handleLogout()}
+          onClick={() => logOutHandler()}
       >
         <AiOutlineLogout size={20} className="dark:text-white text-black" />
         <h5 className="pl-2 800px:block hidden font-Poppins dark:text-white text-black">
