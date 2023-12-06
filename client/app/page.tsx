@@ -7,6 +7,8 @@ import Courses from "./components/Route/Courses";
 import Reviews from "./components/Route/Reviews";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer";
+// import EnquiryForm from "../app/components/Enquiry/EnquiryForm";
+
 
 interface Props {}
 
@@ -22,6 +24,7 @@ const Page: FC<Props> = (props) => {
         description="Vishwa Cloud Lab is a platform for learners to grasp the requried skills to be in ahead in the race !"
         keywords="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab"
       />
+      {/* <EnquiryForm/> */}
       <Header
         open={open}
         setOpen={setOpen}

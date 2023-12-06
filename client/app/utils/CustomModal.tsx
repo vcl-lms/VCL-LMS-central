@@ -10,6 +10,8 @@ type Props = {
     refetch?:any;
 }
 
+//Login and signup | enquiry layout 
+
 const CustomModal: FC<Props> = ({open,setOpen,setRoute,component:Component,refetch}) => {
   return (
     <Modal
