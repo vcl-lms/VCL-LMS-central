@@ -85,7 +85,7 @@ const CourseInformation: FC<Props> = ({
               setCourseInfo({ ...courseInfo, name: e.target.value })
             }
             id="name"
-            placeholder="MERN stack LMS platform with next 13"
+            placeholder="Example: MERN stack LMS platform with next 13"
             className={`
             ${styles.input}`}
           />
@@ -119,7 +119,7 @@ const CourseInformation: FC<Props> = ({
                 setCourseInfo({ ...courseInfo, price: e.target.value })
               }
               id="price"
-              placeholder="29"
+              placeholder="Enter the current price"
               className={`
             ${styles.input}`}
             />
@@ -136,7 +136,7 @@ const CourseInformation: FC<Props> = ({
                 setCourseInfo({ ...courseInfo, estimatedPrice: e.target.value })
               }
               id="price"
-              placeholder="79"
+              placeholder="Previous price"
               className={`
             ${styles.input}`}
             />
@@ -157,7 +157,7 @@ const CourseInformation: FC<Props> = ({
                 setCourseInfo({ ...courseInfo, tags: e.target.value })
               }
               id="tags"
-              placeholder="MERN,Next 13,Socket io,tailwind css,LMS"
+              placeholder="Example: MERN,Next 13,Socket io,tailwind css,LMS"
               className={`
             ${styles.input}`}
             />
@@ -169,7 +169,8 @@ const CourseInformation: FC<Props> = ({
             <select
               name=""
               id=""
-              className={`${styles.input}`}
+              // className={`${styles.input}`}
+              className={"w-full border rounded h-[40px] px-2 outline-none mt-[10px] font-Poppins text-black dark:text-white dark:bg-[#090C14]"}
               value={courseInfo.category}
               onChange={(e: any) =>
                 setCourseInfo({ ...courseInfo, categories: e.target.value })
@@ -214,7 +215,7 @@ const CourseInformation: FC<Props> = ({
                 setCourseInfo({ ...courseInfo, demoUrl: e.target.value })
               }
               id="demoUrl"
-              placeholder="eer74fd"
+              placeholder="Enter Video ID from VideoCipher"
               className={`
             ${styles.input}`}
             />

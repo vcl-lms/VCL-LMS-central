@@ -8,6 +8,7 @@ import ChangePassword from "./ChangePassword";
 import CourseCard from "../Course/CourseCard";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 
+
 type Props = {
   user: any;
 };
@@ -29,6 +30,7 @@ const Profile: FC<Props> = ({ user }) => {
     setLogout(true);
     await signOut();
   };
+
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {

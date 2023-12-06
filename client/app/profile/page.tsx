@@ -19,7 +19,7 @@ const Page: FC<Props> = (props) => {
     <div className="min-h-screen">
       <Protected>
         <Heading
-          title={`${user?.name} profile - VCL`}
+          title={`${user?.name} @ VCL`}
           description="VCL is a platform for students to learn and get help from teachers"
           keywords="Prograaming,MERN,Redux,Machine Learning, Cloud Computing"
         />

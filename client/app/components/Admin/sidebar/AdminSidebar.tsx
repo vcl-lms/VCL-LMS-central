@@ -101,7 +101,7 @@ const Sidebar = () => {
           left: 0,
           height: "100vh",
           zIndex:99999999999999,
-          width: isCollapsed ? "0%" : "16%",
+          width: isCollapsed ? "0%" : "17%",
         }}
       >
         <Menu iconShape="square">
@@ -121,8 +121,8 @@ const Sidebar = () => {
                 ml="15px"
               >
                <Link href="/" className="block">
-               <h3 className="text-[25px] font-Poppins uppercase dark:text-white text-black">
-                  Vishwa Cloud Lab
+               <h3 className="text-[25px] font-Poppins uppercase  dark:text-white text-black">
+                  VCL - Panel
                 </h3>
                </Link>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)} className="inline-block">
