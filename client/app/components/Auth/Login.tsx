@@ -125,8 +125,8 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
             onClick={() => setRoute("Sign-Up")}
           >
             Sign up
-            <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">(VCL Beta version 1.0.1)</h5>
           </span>
+            <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">(VCL Beta version 1.0.1)</h5>
         </h5>
       </form>
       <br />
