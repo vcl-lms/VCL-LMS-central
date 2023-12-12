@@ -48,7 +48,7 @@ exports.createOrder = (0, catchAsyncErrors_1.CatchAsyncError)(async (req, res, n
                 _id: course._id.toString().slice(0, 6),
                 name: course.name,
                 price: course.price,
-                date: new Date().toLocaleDateString("en-US", {
+                date: new Date().toLocaleDateString("en-IN", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
