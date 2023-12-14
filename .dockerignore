@@ -3,3 +3,4 @@ server/.gitignore
 
 client/node_modules
 client/.gitignore
+client/.next
