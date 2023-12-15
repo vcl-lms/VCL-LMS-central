@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+
+  #MongoDB service
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - vcl-network
+
   # Server service
   server:
     build:
@@ -10,6 +21,8 @@ services:
       - "8000:8000"  
     depends_on:
       - client
+    networks:
+      - vcl-network
 
   # Client service
   client:
@@ -18,3 +31,12 @@ services:
       dockerfile: dockerfile.client
     ports:
       - "3000:3000"  
+    networks:
+      - vcl-network
+
+networks:
+  vcl-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
