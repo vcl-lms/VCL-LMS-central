@@ -21,8 +21,8 @@ services:
       - "8000:8000"  
     depends_on:
       - client
-    # networks:
-    #   - vcl-network
+    networks:
+      - vcl-network
 
   # Client service
   client:
@@ -31,12 +31,28 @@ services:
       dockerfile: dockerfile.client
     ports:
       - "3000:3000"  
-#     networks:
-#       - vcl-network
+    networks:
+      - vcl-network
 
-# networks:
-#   vcl-network:
-#     driver: bridge
+
+  # #Nginx Server
+  # nginx_server:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile.nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - client
+  #     - server
+  #   restart: always
+  #   networks:
+  #     - vcl-network
+
+
+networks:
+  vcl-network:
+    driver: bridge
 
 # volumes:
 #   mongo-data:
