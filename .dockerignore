@@ -1,5 +1,6 @@
 server/node_modules
 server/.gitignore
+server/build
 
 client/node_modules
 client/.gitignore
