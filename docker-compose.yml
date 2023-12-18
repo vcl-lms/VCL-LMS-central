@@ -36,19 +36,19 @@ services:
       - vcl-network
 
 
-  #Nginx Server
-  nginx_server:
-    build:
-      context: .
-      dockerfile: dockerfile.nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - client
-      - server
-    restart: always
-    networks:
-      - vcl-network
+  # # Nginx Server
+  # nginx_server:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile.nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - client
+  #     - server
+  #   restart: always
+  #   networks:
+  #     - vcl-network
 
 
 networks:
