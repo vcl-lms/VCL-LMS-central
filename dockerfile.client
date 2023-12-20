@@ -1,23 +1,11 @@
-# Use an official Node.js runtime as a parent image
-FROM node:alpine
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
+FROM node:alpine as build
+WORKDIR /app/client
 COPY client/package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the remaining application code to the working directory
 COPY ./client .
-
-# Build the Next.js application
 RUN npm run build
 
-# Expose the port that the app will run on
-EXPOSE 3000
-
-# Define the command to run your application
-CMD ["npm", "start"]
+FROM nginx:alpine
+COPY --from=build /app/client/.next /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

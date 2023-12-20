@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(
   cors({
     // origin: process.env.ORIGIN,
+    // origin: `[${process.env.ORIGIN}]`,
     origin: ['http://localhost:3000'],
     // origin: ["https://vcl-client-nine.vercel.app"],
     credentials: true,

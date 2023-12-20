@@ -1,0 +1,19 @@
+version: '3'
+services:
+  client:
+    image: vishwacloudlab007/client:latest
+    ports:
+      - "80:3000"
+    networks:
+      - vcl-network
+
+  server:
+    image: vishwacloudlab007/server:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - vcl-network
+
+networks:
+  vcl-network:
+    driver: bridge
