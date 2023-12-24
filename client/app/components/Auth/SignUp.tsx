@@ -21,34 +21,35 @@ const schema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email!")
     .required("Please enter your email!"),
+  phone: Yup.string().required("Please enter your phone number !").min(10),
   password: Yup.string().required("Please enter your password!").min(6),
 });
 
 const Signup: FC<Props> = ({ setRoute }) => {
   const [show, setShow] = useState(false);
-  const [register,{data,error,isSuccess}] = useRegisterMutation(); 
+  const [register, { data, error, isSuccess }] = useRegisterMutation();
 
   useEffect(() => {
-   if(isSuccess){
+    if (isSuccess) {
       const message = data?.message || "Registration successful";
       toast.success(message);
       setRoute("Verification");
-   }
-   if(error){
-    if("data" in error){
-      const errorData = error as any;
-      toast.error(errorData.data.message);
     }
-   }
-  }, [isSuccess,error]);
-  
+    if (error) {
+      if ("data" in error) {
+        const errorData = error as any;
+        toast.error(errorData.data.message);
+      }
+    }
+  }, [isSuccess, error]);
+
 
   const formik = useFormik({
-    initialValues: { name: "", email: "", password: "" },
+    initialValues: { name: "", email: "", phone: "", password: "" },
     validationSchema: schema,
-    onSubmit: async ({name, email, password }) => {
+    onSubmit: async ({ name, email, phone, password }) => {
       const data = {
-        name,email,password
+        name, email, phone, password
       };
       await register(data);
     },
@@ -60,6 +61,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
     <div className="w-full">
       <h1 className={`${styles.title}`}>Join to VCL</h1>
       <form onSubmit={handleSubmit}>
+
         <div className="mb-3">
           <label className={`${styles.label}`} htmlFor="email">
             Enter your Name
@@ -70,15 +72,15 @@ const Signup: FC<Props> = ({ setRoute }) => {
             value={values.name}
             onChange={handleChange}
             id="name"
-            placeholder="johndoe"
-            className={`${errors.name && touched.name && "border-red-500"} ${
-              styles.input
-            }`}
+            placeholder="vishwa"
+            className={`${errors.name && touched.name && "border-red-500"} ${styles.input
+              }`}
           />
           {errors.name && touched.name && (
             <span className="text-red-500 pt-2 block">{errors.name}</span>
           )}
         </div>
+
         <label className={`${styles.label}`} htmlFor="email">
           Enter your Email
         </label>
@@ -89,13 +91,32 @@ const Signup: FC<Props> = ({ setRoute }) => {
           onChange={handleChange}
           id="email"
           placeholder="loginmail@gmail.com"
-          className={`${errors.email && touched.email && "border-red-500"} ${
-            styles.input
-          }`}
+          className={`${errors.email && touched.email && "border-red-500"} ${styles.input
+            }`}
         />
         {errors.email && touched.email && (
           <span className="text-red-500 pt-2 block">{errors.email}</span>
         )}
+
+        <div className="mb-3 mt-3">
+          <label className={`${styles.label}`} htmlFor="email">
+            Enter your Phone Number
+          </label>
+          <input
+            type="number"
+            name=""
+            value={values.phone}
+            onChange={handleChange}
+            id="phone"
+            placeholder="9876543210"
+            className={`${errors.phone && touched.phone && "border-red-500"} ${styles.input
+              }`}
+          />
+          {errors.phone && touched.phone && (
+            <span className="text-red-500 pt-2 block">{errors.phone}</span>
+          )}
+        </div>
+
         <div className="w-full mt-5 relative mb-1">
           <label className={`${styles.label}`} htmlFor="email">
             Enter your password
@@ -107,9 +128,8 @@ const Signup: FC<Props> = ({ setRoute }) => {
             onChange={handleChange}
             id="password"
             placeholder="password!@%"
-            className={`${
-              errors.password && touched.password && "border-red-500"
-            } ${styles.input}`}
+            className={`${errors.password && touched.password && "border-red-500"
+              } ${styles.input}`}
           />
           {!show ? (
             <AiOutlineEyeInvisible

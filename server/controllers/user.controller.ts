@@ -24,6 +24,7 @@ import cloudinary from "cloudinary";
 interface IRegistrationBody {
   name: string;
   email: string;
+  phone: string;
   password: string;
   avatar?: string;
 }
@@ -31,7 +32,7 @@ interface IRegistrationBody {
 export const registrationUser = CatchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { name, email, password } = req.body;
+      const { name, email, phone, password } = req.body;
 
       const isEmailExist = await userModel.findOne({ email });
       if (isEmailExist) {
@@ -41,6 +42,7 @@ export const registrationUser = CatchAsyncError(
       const user: IRegistrationBody = {
         name,
         email,
+        phone,
         password,
       };
 
@@ -119,7 +121,7 @@ export const activateUser = CatchAsyncError(
         return next(new ErrorHandler("Invalid activation code", 400));
       }
 
-      const { name, email, password } = newUser.user;
+      const { name, email, phone, password } = newUser.user;
 
       const existUser = await userModel.findOne({ email });
 
@@ -129,6 +131,7 @@ export const activateUser = CatchAsyncError(
       const user = await userModel.create({
         name,
         email,
+        phone,
         password,
       });
 
@@ -207,13 +210,13 @@ export const updateAccessToken = CatchAsyncError(
         return next(new ErrorHandler(message, 400));
       }
       const session = await redis.get(decoded.id as string);
-         
+
       if (!session) {
         return next(
           new ErrorHandler("Please login for access this resources!", 400)
         );
       }
-      
+
       const user = JSON.parse(session);
 
       const accessToken = jwt.sign(
@@ -430,7 +433,7 @@ export const updateUserRole = CatchAsyncError(
       const isUserExist = await userModel.findOne({ email });
       if (isUserExist) {
         const id = isUserExist._id;
-        updateUserRoleService(res,id, role);
+        updateUserRoleService(res, id, role);
       } else {
         res.status(400).json({
           success: false,
