@@ -9,8 +9,7 @@ type Props = {
 const CoursePlayer: FC<Props> = ({ videoUrl }) => {
   const [videoData, setVideoData] = useState({
     otp: "",
-    playbackInfo: "",
-  });
+    playbackInfo: "",   });
 
   useEffect(() => {
     axios

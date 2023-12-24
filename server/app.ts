@@ -24,7 +24,8 @@ app.use(
     // origin: process.env.ORIGIN,
     // origin: `[${process.env.ORIGIN}]`,
     origin: ['http://localhost:3000'],
-    // origin: ["https://vcl-client-nine.vercel.app"],
+    // origin: ["https://www.pramodtechsolutions.online"],
+    // origin: ["https://vcl-test-client.vercel.app"],
     credentials: true,
   })
 );
