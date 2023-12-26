@@ -1,6 +1,6 @@
 ![Banner.jpg](https://i.postimg.cc/9MmHmwV6/Banner.jpg)
 
-# <span style="font-family: Arial, sans-serif; text-align: center">VISHWA CLOUD LAB</span>
+# <h1 style="font-family: Arial, sans-serif; text-align: center">VISHWA CLOUD LAB</h1>
 
 ### Empowering Minds, Transforming Futures
 
