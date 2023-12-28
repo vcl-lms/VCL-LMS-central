@@ -36,7 +36,7 @@ const Hero: FC<Props> = (props) => {
             {/* Girl Illustration in HERO SECTION*/}
             <div className="1000px:w-[40%] flex 1000px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10">
               <Image
-                src={require("../../../public/assests/banner-img-1.png")}
+                src={data?.layout?.banner?.image?.url}
                 width={400}
                 height={400}
                 alt="Image Error..."
@@ -90,7 +90,7 @@ const Hero: FC<Props> = (props) => {
                   className="rounded-full ml-[-20px]"
                 />
                 <p className="font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]">
-                  500K+ People already trusted us.{" "}
+                  10K+ People already trusted us.{" "}
                   <Link
                     href="/courses"
                     className="dark:text-[#46e256] text-[crimson]"

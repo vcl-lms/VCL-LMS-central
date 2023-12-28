@@ -8,35 +8,29 @@ const About = () => {
       <h1 className={`${styles.title} 800px:!text-[45px]`}>
         What is <span className="text-gradient">Vishwa Cloud Lab ?</span>
       </h1>
-      
+
       <br />
       <div className="w-[95%] 800px:w-[85%] m-auto">
         <p className="text-[18px] font-Poppins">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis distinctio quia accusantium quo expedita at id nemo, aspernatur praesentium illo consequatur deleniti, consectetur accusamus itaque quasi quae iusto! Voluptate, ut!
+          VishwaCloudLab is a dynamic training company specializing in cutting-edge cloud technologies.
           <br />
           <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit soluta itaque distinctio magnam, natus impedit consectetur iure debitis voluptatum cupiditate a maiores iste eligendi voluptate molestiae porro. Minus, ea quis!
+          With a focus on delivering comprehensive courses and hands-on experiences, we're dedicated to shaping proficient cloud professionals of tomorrow.
           <br />
           <br />
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus iste laboriosam deserunt pariatur voluptate alias nihil, est repudiandae, adipisci perferendis eius aliquam. Non voluptatem esse, odio fugit illo vel ad?
+          Our mission is to equip individuals and businesses with the skills and expertise needed to thrive in the ever-evolving realm of cloud computing.
           <br />
           <br />
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam recusandae exercitationem porro aliquam quis quasi dolores! Soluta pariatur fugiat quod neque blanditiis, necessitatibus reiciendis sapiente eveniet magnam exercitationem ut excepturi!
-          <br />
-          <br />
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum saepe error optio nesciunt recusandae veniam placeat molestiae repellat? Culpa obcaecati, eos sint officiis omnis quae cum similique odio corporis harum!
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, illum porro amet asperiores, aliquid earum voluptas ea nostrum pariatur ut impedit. Doloribus obcaecati sapiente tempora accusantium repudiandae provident. Cum, repudiandae.
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laboriosam iure asperiores ducimus nesciunt impedit quos incidunt cumque possimus? Ipsam aliquam officia veritatis consectetur blanditiis voluptatum aut sed repellendus amet?
+          At VishwaCloudLab, we believe in cultivating innovation, fostering growth, and paving the way for a successful digital future.
         </p>
         <br />
-        <span className="text-[22px]">Vishwanath</span>
-        <h5 className="text-[18px] font-Poppins">
+        <div>------------------------</div>
+        <br />
+        <span className="text-[22px]">CEO Mr Vishwanath has 18 years of Industry experience, which he would want to share with others via an effitiant Training programs offered by "VishwaCloudLab" (Parent company "Kloud gateway services" ).
+        </span>
+        {/* <h5 className="text-[18px] font-Poppins">
           Founder and CEO of Vishwa Cloud Lab
-        </h5>
+        </h5> */}
         <br />
         <br />
         <br />

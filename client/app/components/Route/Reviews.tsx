@@ -71,7 +71,7 @@ const Reviews = (props: Props) => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque unde
             voluptatum dignissimos, nulla perferendis dolorem voluptate nemo
             possimus magni deleniti natus accusamus officiis quasi nihil
-            commodi, praesentium quidem, quis doloribus?
+            commodi, praesentium quidem, quis doloribus? 
           </p>
         </div>
         <br />
