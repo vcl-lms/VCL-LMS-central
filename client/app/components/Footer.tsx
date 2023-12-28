@@ -23,7 +23,7 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="/privacy-policy"
+                  href="/policy"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Privacy Policy
@@ -60,7 +60,7 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="/course-dashboard"
+                  href="/courses"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Course Dashboard

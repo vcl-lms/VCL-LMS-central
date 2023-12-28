@@ -12,6 +12,7 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
+
 type Props = {
   data: any;
   stripePromise: any;
@@ -27,7 +28,7 @@ const CourseDetails = ({
   setRoute,
   setOpen: openAuthModal,
 }: Props) => {
-  const { data: userData,refetch } = useLoadUserQuery(undefined, {});
+  const { data: userData, refetch } = useLoadUserQuery(undefined, {});
   const [user, setUser] = useState<any>();
   const [open, setOpen] = useState(false);
 
@@ -45,7 +46,7 @@ const CourseDetails = ({
 
   const handleOrder = (e: any) => {
     if (user) {
-      setOpen(true);
+      setOpen(false);
     } else {
       setRoute("Login");
       openAuthModal(true);
@@ -120,6 +121,7 @@ const CourseDetails = ({
             </div>
             <br />
             <br />
+
             {/* course description */}
             <div className="w-full">
               <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
@@ -213,6 +215,8 @@ const CourseDetails = ({
               )}
             </div>
           </div>
+
+
           <div className="w-full 800px:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
@@ -221,11 +225,11 @@ const CourseDetails = ({
                   {data.price === 0 ? "Free" : "Rs " + data.price}
                 </h1>
                 <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
-                  {data.estimatedPrice}Rs
+                  Rs {data.estimatedPrice}
                 </h5>
 
                 <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
-                  {discountPercentengePrice} % Off
+                  {discountPercentengePrice}% Off
                 </h4>
               </div>
               <div className="flex items-center">
@@ -238,13 +242,15 @@ const CourseDetails = ({
                   </Link>
                 ) : (
                   <div
-                    className={`${styles.button} !w-[200px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
+                    className={`${styles.button} !w-[250px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={handleOrder}
                   >
-                    Buy Now {"Rs " + data.price}
+                    {/* Buy Now {"Rs " + data.price} */}
+                    Contact Support Team
                   </div>
                 )}
               </div>
+                <p className="pb-1 text-black dark:text-white">Sales executive will get in touch asap !</p>
               <br />
               <p className="pb-1 text-black dark:text-white">
                 • Source code included

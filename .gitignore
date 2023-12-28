@@ -1,4 +1,7 @@
 client/.next
 client/node_modules
+
+server/build
 server/node_modules
-.env
+
+docker

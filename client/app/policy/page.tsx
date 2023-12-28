@@ -15,9 +15,9 @@ const Page = (props: Props) => {
   return (
     <div>
       <Heading
-        title="Policy - Eearning"
-        description="Elearning is a learning management system for helping programmers."
-        keywords="programming,mern"
+        title="Policy - VCL"
+        description="VCL is a learning management system for helping programmers."
+        keywords="programming,mern,cloud computing"
       />
       <Header
         open={open}

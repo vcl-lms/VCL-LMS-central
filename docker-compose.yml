@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+
+  #MongoDB service
+  # mongo:
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   networks:
+  #     - vcl-network
+
+  # Server service
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile.server
+    ports:
+      - "8000:8000"  
+    depends_on:
+      - client
+      # - mongo
+    networks:
+      - vcl-network
+
+  # Client service
+  client:
+    build:
+      context: .
+      dockerfile: dockerfile.client
+    ports:
+      - "3000:3000"  
+    networks:
+      - vcl-network
+
+
+  # # Nginx Server
+  # nginx_server:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile.nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - client
+  #     - server
+  #   restart: always
+  #   networks:
+  #     - vcl-network
+
+
+networks:
+  vcl-network:
+    driver: bridge
+
+# volumes:
+#   mongo-data:

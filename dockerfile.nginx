@@ -1,0 +1,20 @@
+# Use the official Nginx base image
+FROM nginx:alpine
+
+# Remove the default Nginx configuration file
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/sites-available/
+# Set the working directory in the container
+# WORKDIR /usr/share/nginx/html
+
+# Copy the built client-side application (e.g., Angular, React, etc.) to the container
+# COPY client/.next .
+
+# Expose the port that Nginx will run on
+EXPOSE 80
+
+# Command to start Nginx
+CMD ["nginx", "-g", "daemon off;"]
