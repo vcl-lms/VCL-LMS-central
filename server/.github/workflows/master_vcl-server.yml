@@ -1,4 +1,7 @@
-name: Build and deploy Node.js app to Azure Web App - vcl-serevr
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - vcl-server
 
 on:
   push:
@@ -53,7 +56,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'vcl-serevr'
+          app-name: 'vcl-server'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F18F113AA60F477C9CD967A7EEED2C86 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1D24D51502404747BDF82686EF50182C }}
           package: .
