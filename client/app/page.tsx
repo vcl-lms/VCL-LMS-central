@@ -20,7 +20,7 @@ const Page: FC<Props> = (props) => {
       <Heading
         title="Vishwa Cloud Lab"
         description="Vishwa Cloud Lab is a platform for learners to grasp the requried skills to be in ahead in the race !"
-        keywords="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab"
+        keywords="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab, vishwacloudlba, VCL, AWS, AZURE, github, cloud computing"
       />
       <Header
         open={open}

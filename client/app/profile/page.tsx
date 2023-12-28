@@ -21,7 +21,7 @@ const Page: FC<Props> = (props) => {
         <Heading
           title={`${user?.name} @ VCL`}
           description="VCL is a platform for students to learn and get help from teachers"
-          keywords="Prograaming,MERN,Redux,Machine Learning, Cloud Computing"
+          keywords="Programing,MERN,Redux,Machine Learning, Cloud Computing"
         />
         <Header
           open={open}
