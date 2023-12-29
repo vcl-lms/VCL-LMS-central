@@ -15,7 +15,7 @@ const About = () => {
           VishwaCloudLab is a dynamic training company specializing in cutting-edge cloud technologies.
           <br />
           <br />
-          With a focus on delivering comprehensive courses and hands-on experiences, we're dedicated to shaping proficient cloud professionals of tomorrow.
+          With a focus on delivering comprehensive courses and hands-on experiences, we are dedicated to shaping proficient cloud professionals of tomorrow.
           <br />
           <br />
           Our mission is to equip individuals and businesses with the skills and expertise needed to thrive in the ever-evolving realm of cloud computing.
