@@ -52,18 +52,18 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="/profile"
+                  href="/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
-                  My Account
+                  Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/courses"
+                  href="/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
-                  Course Dashboard
+                  Labs
                 </Link>
               </li>
             </ul>
@@ -73,8 +73,9 @@ const Footer = (props: Props) => {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="https://www.youtube.com/"
+                  href="https://www.youtube.com/@vishwacloudlab"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
                 >
                   Youtube
                 </Link>
@@ -83,14 +84,16 @@ const Footer = (props: Props) => {
                 <Link
                   href="https://www.instagram.com/"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
                 >
                   Instagram
                 </Link>
               </li>
               <li>
                 <Link
-                  href="https://www.github.com/"
+                  href="https://github.com/Vishwacloudlabs"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
                 >
                   GitHub
                 </Link>
@@ -100,22 +103,22 @@ const Footer = (props: Props) => {
           <div>
             <h3 className="text-[20px] font-[600] text-black dark:text-white pb-3">Contact Info</h3>
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Call Us: 9999999999
+            Call Us: 7619-5525-05 | 799-699-7995
             </p>
            
-            <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Address: Marathalli, Bengaluru
+            <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2 pt-2">
+            Address: 3rd Floor, Krishna towers (behind Vijaya bank), Opp to Patanjali Shop, Marathahalli service Road, Marathahalli - 560037
             </p>
          
-            <p className="text-base text-black dark:text-gray-300 dark:hover:text-white  pb-2">
-            Mail Us: support@vcl.com
+            <p className="text-base text-black dark:text-gray-300 dark:hover:text-white  pb-2 pt-2">
+            Mail Us: info@vishwacloudlab.com
             </p>
             
           </div>
         </div>
         <br />
         <p className="text-center text-black dark:text-white">
-          Copyright © 2023 Vishwa Cloud Lab | All Rights Reserved
+          Copyright © 2024 Vishwa Cloud Lab | All Rights Reserved
         </p>
       </div>
       <br />

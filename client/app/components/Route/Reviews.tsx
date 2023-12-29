@@ -2,86 +2,92 @@ import { styles } from "@/app/styles/style";
 import Image from "next/image";
 import React from "react";
 import ReviewCard from "../Review/ReviewCard";
+import Ratings from "@/app/utils/Ratings";
 
 type Props = {};
 
 export const reviews = [
   {
-    name: "Gene Bates",
+    name: "Aklank Jain",
+    star:<Ratings rating={4.5}/>,
     avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-    profession: "Student | Cambridge university",
+    profession: "AWS DEVOPS | DevOps Engineer",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-},
+      "Vishwanath sir depth of knowledge and expertise in AWS , Devops and Azure is impressive. He has ability to explain complex aws concepts in a clear and understandable manner is commendable. He has added more hands-on lab exercises rather than theoretical learning. He also helps all his students for interview preparations, real time scenario project work , job support. He will also guide and help students on how to switch career in aws-Devops job roles as well. He is one of the best trainer , mentor , life-coach, friend in Bangalore I have ever met in my life.",
+
+  },
   {
-    name: "Verna Santos",
+    name: "Biplab Raut",
+    star:<Ratings rating={4}/>,
     avatar: "https://randomuser.me/api/portraits/women/1.jpg",
-    profession: "Full stack developer | Quarter ltd.",
+    profession: "AWS Solution Architect | Cloud Engineering",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-},
+      "The way he explains the things related to the subject is very interesting. He makes you involved in that part of the example so that you can be able to analyse the course better. Good concept of taking an example which makes you understand the topic in a better way. Very helpful.",
+  },
   {
-    name: "Jay Gibbs",
+    name: "Sumer",
+    star:<Ratings rating={5}/>,
     avatar: "https://randomuser.me/api/portraits/men/2.jpg",
-    profession: "computer systems engineering student | Zimbabwe",
+    profession: "AWS Solution Architect | DevOps Engineering",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
+      "I really want thank Vishwanath for the training he provided, I can confidently rave that it's been the most innovative, practical and effective course I have attended. All thanks to Vishwanath for sharing and improving the perception towards technology."
+  },
   {
-    name: "Mina Davidson",
+    name: "Shweta Patel",
+    star:<Ratings rating={4.5}/>,
     avatar: "https://randomuser.me/api/portraits/women/2.jpg",
-    profession: "Junior Web Developer | Indonesia",
+    profession: "Amazon Web Services | DevOps Engineer",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-},
+      "I had a great time learning the new concepts about aws from scratch. Practical's were very helpful, study guide also covers all the topics which is helpful from the exam perspective. I would recommend anyone to join Vishwanath Sir if you are new to this technology as his way of explaining with examples is extremely good.",
+  },
   {
-    name: "Rosemary Smith",
+    name: "Andrew Onyango",
+    star:<Ratings rating={4}/>,
     avatar: "https://randomuser.me/api/portraits/women/3.jpg",
-    profession: "Full stack web developer | Algeria",
+    profession: "Microsoft Azure | Azure Cloud Engineer",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-},
+      "Good training session that I had with Vish. He has a good understanding of MS Azure, and the lecture that I had with him was so fruitful in bid for my journey to certify in Azure.",
+  },
   {
-    name: "Laura Mckenzie",
+    name: "Masoom Mujawar",
+    star:<Ratings rating={5}/>,
     avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-    profession: "Full stack web developer | Canada",
+    profession: "AWS Plus Devops Training | DevOps Engineer",
     comment:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-},
+      "It's an excellent experience with Vishwa to learn AWS, he has vast experience in AWS, DevOps, networking and Azure and the way of teaching is very good. Clear and detail understanding of each topic and concepts, and he is putting extra efforts and take more classes for understanding and practice all concepts to each student. Overall, it's knowledge gaining class in friendly environment. Vishwa is the best trainer/teacher in this field with real-time experience. ",
+  },
 ];
 
 const Reviews = (props: Props) => {
   return (
-  <div className="w-[90%] 800px:w-[85%] m-auto">
+    <div className="w-[90%] 800px:w-[85%] m-auto">
       <div className="w-full 800px:flex items-center">
-      <div className="800px:w-[50%] w-full">
-        <Image
-        src={require("../../../public/assests/business-img.png")}
-        alt="business"
-        width={700}
-        height={700}
-        />
+        <div className="800px:w-[50%] w-full">
+          <Image
+            src={require("../../../public/assests/business-img.png")}
+            alt="business"
+            width={700}
+            height={700}
+          />
         </div>
         <div className="800px:w-[50%] w-full">
-          <h3 className={`${styles.title} 800px:!text-[40px]`}>
+          <h3 className={`${ styles.title } 800px: !text - [40px]`}>
             Our Students Are <span className="text-gradient">Our Strength</span>{" "}
             <br /> See What They Say About Us
           </h3>
           <br />
           <p className={styles.label}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque unde
-            voluptatum dignissimos, nulla perferendis dolorem voluptate nemo
-            possimus magni deleniti natus accusamus officiis quasi nihil
-            commodi, praesentium quidem, quis doloribus?
+            {/* add any lines if u want */}
           </p>
         </div>
         <br />
         <br />
-       </div>
-       <div className="grid grid-cols-1 gap-[25px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-2 lg:gap-[25px] xl:grid-cols-2 xl:gap-[35px] mb-12 border-0 md:[&>*:nth-child(3)]:!mt-[-30px] md:[&>*:nth-child(6)]:!mt-[-20px]">
+      </div>
+      <div className="grid grid-cols-1 gap-[25px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-2 lg:gap-[25px] xl:grid-cols-2 xl:gap-[35px] mb-12 border-0 md:[&>*:nth-child(4)]:!mt-[-40px] md:[&>*:nth-child(6)]:!mt-[0px]">
         {reviews &&
-            reviews.map((i, index) => <ReviewCard item={i} key={index} />)}
-        </div>
-  </div>
+          reviews.map((i, index) => <ReviewCard item={i} key={index} />)}
+      </div>
+    </div>
   );
 };
 
