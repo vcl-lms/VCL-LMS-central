@@ -42,7 +42,6 @@ const userSchema: Schema<IUser> = new mongoose.Schema(
     phone: {
       type: String,
       minlength: [10, "Phone number must be 10 digits"],
-      required: [true, "Please your phone number"],
       select: false,
     },
     password: {
