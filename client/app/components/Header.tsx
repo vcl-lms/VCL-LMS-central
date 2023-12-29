@@ -140,7 +140,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                   onClick={handleClose}
                   id="screen"
                 >
-                  <div className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
+                  <div className="w-[65%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
                     <NavItems activeItem={activeItem} isMobile={true} />
                     {userData?.user ? (
                       <Link href={"/profile"}>
@@ -156,14 +156,14 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                     ) : (
                       <HiOutlineUserCircle
                         size={25}
-                        className="hidden 800px:block cursor-pointer dark:text-white text-black"
+                        className="ml-6 800px:block cursor-pointer dark:text-white text-black"
                         onClick={() => setOpen(true)}
                       />
                     )}
                     <br />
                     <br />
                     <p className="text-[16px] px-2 pl-5 text-black dark:text-white">
-                      Copyright © 2023 Vishwa Cloud Lab
+                      Copyright © 2024 Vishwa Cloud Lab
                     </p>
                   </div>
                 </div>
