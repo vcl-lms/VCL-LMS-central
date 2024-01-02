@@ -112,7 +112,7 @@ export const createOrder = CatchAsyncError(
 
 // get All orders --- only for admin
 export const getAllOrders = CatchAsyncError(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (_req: Request, res: Response, next: NextFunction) => {
     try {
       getAllOrdersService(res);
     } catch (error: any) {
@@ -153,8 +153,8 @@ export const newPayment = CatchAsyncError(
             postal_code: '98140',
             city: 'Bengaluru',
             state: 'KA',
-            country: 'IND',
-          },
+            country: 'US',
+          },  
         },
       });
 
