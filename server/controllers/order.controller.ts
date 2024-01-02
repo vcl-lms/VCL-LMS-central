@@ -136,9 +136,9 @@ export const newPayment = CatchAsyncError(
     try {
       const myPayment = await stripe.paymentIntents.create({
         amount: req.body.amount,
-        currency: "USD",
+        currency: "inr",
         metadata: {
-          company: "E-Learning",
+          company: "Kloud Gateway Services",
         },
         automatic_payment_methods: {
           enabled: true,

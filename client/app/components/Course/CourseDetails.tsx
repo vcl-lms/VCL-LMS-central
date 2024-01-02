@@ -46,7 +46,7 @@ const CourseDetails = ({
 
   const handleOrder = (e: any) => {
     if (user) {
-      setOpen(false);
+      setOpen(true);
     } else {
       setRoute("Login");
       openAuthModal(true);
@@ -242,11 +242,10 @@ const CourseDetails = ({
                   </Link>
                 ) : (
                   <div
-                    className={`${styles.button} !w-[250px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
+                    className={`${styles.button} !w-[245px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={handleOrder}
                   >
-                    {/* Buy Now {"Rs " + data.price} */}
-                    Contact Support Team
+                    Buy Now {"@ Rs " + data.price}
                   </div>
                 )}
               </div>
