@@ -8,7 +8,7 @@ import Reviews from "./components/Route/Reviews";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer";
 
-interface Props {}
+interface Props { }
 
 const Page: FC<Props> = (props) => {
   const [open, setOpen] = useState(false);
@@ -17,11 +17,16 @@ const Page: FC<Props> = (props) => {
 
   return (
     <div>
-      <Heading
-        title="Vishwa Cloud Lab"
-        description="Vishwa Cloud Lab is a platform for learners to grasp the requried skills to be in ahead in the race !"
-        keywords="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab, vishwacloudlba, VCL, AWS, AZURE, github, cloud computing"
-      />
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Vishwa Cloud Lab" />
+        <meta name="keywords" content="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab, vishwacloudlab, VCL, AWS, AZURE, github, cloud computing" />
+
+        <meta property="og:title" content="Vishwa Cloud Lab" />
+        <meta property="og:description" content="Empowering Minds, Transforming Futures" />
+        <meta property="og:image" content="/client/app/favicon.ico" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </head>
       <Header
         open={open}
         setOpen={setOpen}
