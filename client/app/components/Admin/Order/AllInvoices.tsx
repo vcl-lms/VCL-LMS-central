@@ -165,6 +165,13 @@ const AllInvoices = ({ isDashboard }: Props) => {
             </div> */}
 
             <DataGrid
+              checkboxSelection={isDashboard ? false : true}
+              rows={rows}
+              columns={columns}
+              components={isDashboard ? {} : { Toolbar: GridToolbar }}
+            />
+            {/* 
+            <DataGrid
               className={`text-black`}
               checkboxSelection={isDashboard ? false : true}
               rows={rows}
@@ -175,7 +182,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
                   className: "GridToolbar", // Add your custom class here
                 },
               }}
-            />
+            /> */}
           </Box>
         </Box>
       )}
