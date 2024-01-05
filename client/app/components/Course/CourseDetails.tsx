@@ -46,7 +46,8 @@ const CourseDetails = ({
 
   const handleOrder = (e: any) => {
     if (user) {
-      setOpen(true);
+      setOpen(false);
+      // setOpen(true);
     } else {
       setRoute("Login");
       openAuthModal(true);
@@ -245,7 +246,7 @@ const CourseDetails = ({
                     className={`${styles.button} !w-[245px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={handleOrder}
                   >
-                    Buy Now {"@ Rs " + data.price}
+                    Contact Us
                   </div>
                 )}
               </div>

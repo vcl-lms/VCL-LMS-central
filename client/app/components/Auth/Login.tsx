@@ -109,7 +109,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
         </div>
         <br />
         {/* <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">SignUp Restricted (VCL Beta Version 1.0.0)</h5> */}
-        <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
+        {/* <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
           Or join with
         </h5>
         <div className="flex items-center justify-center my-3">
@@ -117,7 +117,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
             onClick={() => signIn("google")}
           />
           <AiFillGithub size={30} className="cursor-pointer ml-2  text-black dark:text-white" onClick={() => signIn("github")} />
-        </div>
+        </div> */}
         <h5 className="text-center pt-4 font-Poppins text-[14px]  text-black dark:text-white">
           Not have any account ?{" "}
           <span
@@ -126,7 +126,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
           >
             Sign up
           </span>
-            <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">(VCL Beta version 1.0.0)</h5>
+            <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">VCL v1.0.0</h5>
         </h5>
       </form>
       <br />
