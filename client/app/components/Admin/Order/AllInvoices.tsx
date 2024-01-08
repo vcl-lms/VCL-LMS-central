@@ -98,7 +98,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
       ) : (
         <Box m={isDashboard ? "0" : "40px"}>
           <Box
-            m={isDashboard ? "0" : "40px 0 0 0"}
+            m={isDashboard ? "0" : "40px"}
             height={isDashboard ? "35vh" : "90vh"}
             overflow={"hidden"}
             sx={{
@@ -165,6 +165,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
             </div> */}
 
             <DataGrid
+              className=" dark:bg-[#111C43] bg-[#5e5e5e] "
               checkboxSelection={isDashboard ? false : true}
               rows={rows}
               columns={columns}

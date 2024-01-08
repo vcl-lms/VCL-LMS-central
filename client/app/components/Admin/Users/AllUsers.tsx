@@ -1,10 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Box, Button, Modal } from "@mui/material";
 import { AiOutlineDelete, AiOutlineMail } from "react-icons/ai";
 import { useTheme } from "next-themes";
 import Loader from "../../Loader/Loader";
 import { format } from "timeago.js";
+
 import {
   useDeleteUserMutation,
   useGetAllUsersQuery,
@@ -63,7 +64,7 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
     { field: "id", headerName: "ID", flex: 0.3 },
     { field: "name", headerName: "Name", flex: 0.5 },
     { field: "email", headerName: "Email", flex: 0.5 },
-    { field: "role", headerName: "Role", flex: 0.5 },
+    { field: "phone", headerName: "Phone", flex: 0.5 },
     { field: "courses", headerName: "Purchased Courses", flex: 0.5 },
     { field: "created_at", headerName: "Joined At", flex: 0.5 },
     {
@@ -128,7 +129,8 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
           id: item._id,
           name: item.name,
           email: item.email,
-          role: item.role,
+          // CHECK POINT
+          phone: item.phone,
           courses: item.courses.length,
           created_at: format(item.createdAt),
         });
@@ -145,11 +147,11 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
   };
 
   return (
-    <div className="mt-[120px]">
+    <div className="mt-[120px]" >
       {isLoading ? (
         <Loader />
       ) : (
-        <Box m="20px">
+        <Box m={isTeam ? "0" : "20px"}>
           {isTeam && (
             <div className="w-full flex justify-end">
               <div
@@ -161,8 +163,8 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
             </div>
           )}
           <Box
-            m="40px 0 0 0"
-            height="80vh"
+            m={isTeam ? "0" : "40px"}
+            height={isTeam ? "35vh" : "80vh"}
             sx={{
               "& .MuiDataGrid-root": {
                 border: "none",
@@ -212,7 +214,13 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
               },
             }}
           >
-            <DataGrid checkboxSelection rows={rows} columns={columns} />
+            <DataGrid
+              className=" dark:bg-[#111C43] bg-[#5e5e5e] "
+              checkboxSelection={isTeam ? false : true}
+              rows={rows}
+              columns={columns}
+              components={isTeam ? {} : { Toolbar: GridToolbar }}
+            />
           </Box>
           {active && (
             <Modal
@@ -248,6 +256,7 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
                     Submit
                   </div>
                 </div>
+
               </Box>
             </Modal>
           )}
