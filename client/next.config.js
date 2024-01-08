@@ -2,7 +2,7 @@
  @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['res.cloudinary.com', 'randomuser.me','i.postimg.cc'],
+    domains: ['res.cloudinary.com', "./public/assests/", "i.postimg.cc"],
   },
   experimental: {
     reactRoot: true,
