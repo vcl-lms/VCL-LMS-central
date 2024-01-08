@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+// import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { useDemoData } from '@mui/x-data-grid-generator';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Box } from "@mui/material";
 import { useTheme } from "next-themes";
 import { useGetAllCoursesQuery } from "@/redux/features/courses/coursesApi";
@@ -35,7 +37,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
           userName: user?.name,
           userEmail: user?.email,
           title: course?.name,
-          price: "$" + course?.price,
+          price: "RS " + course?.price,
         };
       });
       setOrderData(temp);
@@ -48,32 +50,33 @@ const AllInvoices = ({ isDashboard }: Props) => {
     ...(isDashboard
       ? []
       : [
-          { field: "userEmail", headerName: "Email", flex: 1 },
-          { field: "title", headerName: "Course Title", flex: 1 },
-        ]),
+        { field: "userEmail", headerName: "Email", flex: 1 },
+        { field: "title", headerName: "Course Title", flex: 1 },
+      ]),
     { field: "price", headerName: "Price", flex: 0.5 },
     ...(isDashboard
       ? [{ field: "created_at", headerName: "Created At", flex: 0.5 }]
       : [
-          {
-            field: " ",
-            headerName: "Email",
-            flex: 0.2,
-            renderCell: (params: any) => {
-              return (
-                <a href={`mailto:${params.row.userEmail}`}>
-                  <AiOutlineMail
-                    className="dark:text-white text-black"
-                    size={20}
-                  />
-                </a>
-              );
-            },
+        {
+          field: " ",
+          headerName: "Email",
+          flex: 0.2,
+          renderCell: (params: any) => {
+            return (
+              <a href={`mailto:${params.row.userEmail}`}>
+                <AiOutlineMail
+                  className="dark:text-white text-black"
+                  size={20}
+                />
+              </a>
+            );
           },
-        ]),
+        },
+      ]),
   ];
 
   const rows: any = [];
+  const dataGridClasses = "dark" ? "#fff" : "#000";
 
   orderData &&
     orderData.forEach((item: any) => {
@@ -88,13 +91,14 @@ const AllInvoices = ({ isDashboard }: Props) => {
     });
 
   return (
+
     <div className={!isDashboard ? "mt-[120px]" : "mt-[0px]"}>
       {isLoading ? (
         <Loader />
       ) : (
         <Box m={isDashboard ? "0" : "40px"}>
           <Box
-            m={isDashboard ? "0" : "40px 0 0 0"}
+            m={isDashboard ? "0" : "40px"}
             height={isDashboard ? "35vh" : "90vh"}
             overflow={"hidden"}
             sx={{
@@ -146,12 +150,40 @@ const AllInvoices = ({ isDashboard }: Props) => {
               },
             }}
           >
+
+
+            {/* <div className={dataGridClasses}>
+              <button onClick={() => setTheme("dark")} />
+              <DataGrid
+                // className={"text-black dark:text-white"}
+                // className={`text-black`}
+                checkboxSelection={isDashboard ? false : true}
+                rows={rows}
+                columns={columns}
+                components={isDashboard ? {} : { Toolbar: GridToolbar }}
+              />
+            </div> */}
+
             <DataGrid
+              className=" dark:bg-[#111C43] bg-[#5e5e5e] "
               checkboxSelection={isDashboard ? false : true}
               rows={rows}
               columns={columns}
               components={isDashboard ? {} : { Toolbar: GridToolbar }}
             />
+            {/* 
+            <DataGrid
+              className={`text-black`}
+              checkboxSelection={isDashboard ? false : true}
+              rows={rows}
+              columns={columns}
+              // components={isDashboard ? {} : { Toolbar: GridToolbar }}
+              componentsProps={{
+                toolbar: {
+                  className: "GridToolbar", // Add your custom class here
+                },
+              }}
+            /> */}
           </Box>
         </Box>
       )}

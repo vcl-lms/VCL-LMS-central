@@ -44,7 +44,7 @@ export const createOrder = CatchAsyncError(
         );
       }
 
-      const course:ICourse | null = await CourseModel.findById(courseId);
+      const course: ICourse | null = await CourseModel.findById(courseId);
 
       if (!course) {
         return next(new ErrorHandler("Course not found", 404));
@@ -112,7 +112,7 @@ export const createOrder = CatchAsyncError(
 
 // get All orders --- only for admin
 export const getAllOrders = CatchAsyncError(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (_req: Request, res: Response, next: NextFunction) => {
     try {
       getAllOrdersService(res);
     } catch (error: any) {
@@ -136,14 +136,38 @@ export const newPayment = CatchAsyncError(
     try {
       const myPayment = await stripe.paymentIntents.create({
         amount: req.body.amount,
-        currency: "USD",
+        currency: "inr",
         metadata: {
-          company: "E-Learning",
+          company: "Kloud Gateway Services",
         },
+
+        description: "Software development services",
         automatic_payment_methods: {
           enabled: true,
         },
+        // payment_method_types: ['card'],
+        shipping: {
+          name: 'Jenny Rosen',
+          address: {
+            line1: '510 Townsend St',
+            postal_code: '98140',
+            city: 'Bengaluru',
+            state: 'KA',
+            country: 'US',
+          },  
+        },
       });
+
+      // const customer = await stripe.customers.create({
+      //   name: "Jenny Rosen",
+      //   address: {
+      //     line1: "510 Townsend St",
+      //     postal_code: "98140",
+      //     city: "San Francisco",
+      //     state: "CA",
+      //     country: "US",
+      //   },
+      // });
 
       res.status(201).json({
         success: true,
