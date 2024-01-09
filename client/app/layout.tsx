@@ -10,6 +10,7 @@ import React, { FC, useEffect } from "react";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./components/Loader/Loader";
 import socketIO from "socket.io-client";
+import CookieNotice from './components/Cookies/CookieNotice';
 
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
@@ -41,7 +42,10 @@ export default function RootLayout({
           <SessionProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Custom>
-                <div>{children}</div>
+                <div>
+                  <CookieNotice />
+                  {children}
+                </div>
               </Custom>
               <Toaster position="top-center" reverseOrder={false} />
             </ThemeProvider>
@@ -56,7 +60,7 @@ const Custom: FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isLoading } = useLoadUserQuery({});
 
   useEffect(() => {
-    socketId.on("connection", () => {});
+    socketId.on("connection", () => { });
   }, []);
 
   return <div>{isLoading ? <Loader /> : <div>{children} </div>}</div>;

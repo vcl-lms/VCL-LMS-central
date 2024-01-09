@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/Heading.tsx", "app/components/Course/CourseCard.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/utils/Heading.tsx", "app/components/Course/CourseCard.tsx", "components/Cookies/CookieNotice.tsx"],
   "exclude": ["node_modules"]
 }
