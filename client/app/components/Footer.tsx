@@ -103,7 +103,7 @@ const Footer = (props: Props) => {
           <div>
             <h3 className="text-[20px] font-[600] text-black dark:text-white pb-3">Contact Info</h3>
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Call Us: 7619-5525-05 | 799-699-7995
+            Call Us: 799-699-5959 | 799-699-7995
             </p>
            
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2 pt-2">
