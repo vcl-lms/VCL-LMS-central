@@ -27,6 +27,7 @@ const CourseAnalytics = (props: Props) => {
   //     { name: 'December 2023', uv: 7 },
   //   ];
 
+  
   const analyticsData: any = [];
 
   data &&
