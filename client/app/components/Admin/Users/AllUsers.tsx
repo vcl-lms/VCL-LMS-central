@@ -72,6 +72,9 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
       headerName: "Delete",
       flex: 0.2,
       renderCell: (params: any) => {
+
+        
+
         return (
           <>
             <Button
@@ -105,21 +108,30 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
     },
   ];
 
+  const formatDate = (dateString: any) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString('en-IN');
+    return formattedDate;
+  };
   const rows: any = [];
 
   if (isTeam) {
     const newData =
       data && data.users.filter((item: any) => item.role === "admin");
+      
 
     newData &&
       newData.forEach((item: any) => {
+        
         rows.push({
           id: item._id,
           name: item.name,
           email: item.email,
           role: item.role,
           courses: item.courses.length,
-          created_at: format(item.createdAt),
+          // courses: item.coursesName,
+
+          created_at: formatDate(item.createdAt),
         });
       });
   } else {
@@ -132,7 +144,9 @@ const AllCourses: FC<Props> = ({ isTeam }) => {
           // CHECK POINT
           phone: item.phone,
           courses: item.courses.length,
-          created_at: format(item.createdAt),
+          // courses: item.coursesName,
+          // created_at: (item.createdAt),
+          created_at: formatDate(item.createdAt),
         });
       });
   }

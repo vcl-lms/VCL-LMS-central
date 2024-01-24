@@ -54,6 +54,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
         { field: "title", headerName: "Course Title", flex: 1 },
       ]),
     { field: "price", headerName: "Price", flex: 0.5 },
+    { field: "created_at", headerName: "Enrolled At", flex: 0.5 },
     ...(isDashboard
       ? [{ field: "created_at", headerName: "Created At", flex: 0.5 }]
       : [
@@ -72,10 +73,18 @@ const AllInvoices = ({ isDashboard }: Props) => {
             );
           },
         },
+
       ]),
+   
   ];
 
   const rows: any = [];
+
+  const formatDate = (dateString: any) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString('en-IN');
+    return formattedDate;
+  };
   const dataGridClasses = "dark" ? "#fff" : "#000";
 
   orderData &&
@@ -86,7 +95,7 @@ const AllInvoices = ({ isDashboard }: Props) => {
         userEmail: item.userEmail,
         title: item.title,
         price: item.price,
-        created_at: format(item.createdAt),
+        created_at: formatDate(item.createdAt),
       });
     });
 
