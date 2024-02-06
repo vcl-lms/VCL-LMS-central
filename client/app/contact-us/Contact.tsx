@@ -14,7 +14,7 @@ const Policy = (props: Props) => {
           <p className="py-2 ml-[-15px] text-[16px] font-Poppins leading-8 whitespace-pre-line">
             <p className={`${styles.subtitle}`}>Mail-Us: info@vishwacloudlab.com</p><br />
             <p className={`${styles.subtitle}`}>Call-Us: 799-699-5959 | 799-699-7995</p><br />
-            <p className={`${styles.subtitle}`}>Address: 3rd Floor, Krishna towers (behind Vijaya bank), Opp to Patanjali Shop, Marathahalli service Road, Marathahalli - 560037</p><br />
+            <p className={`${styles.subtitle}`}>Address: 3rd Floor, Krishna towers (behind Vijaya bank), Opp to Patanjali Shop, Marathahalli service Road, Marathahalli - 560037</p><br/>
 
             <iframe
               title="Google Maps Embed"
