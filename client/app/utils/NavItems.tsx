@@ -12,11 +12,11 @@ export const navItemsData = [
   },
   {
     name: "About",
-    url: "/about",
+    url: "/about-us",
   },
   {
     name: "Policy",
-    url: "/policy",
+    url: "/privacy-policy",
   },
   {
     name: "FAQ",
