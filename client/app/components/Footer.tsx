@@ -9,13 +9,13 @@ const Footer = (props: Props) => {
       <div className="border border-[#0000000e] dark:border-[#ffffff1e]" />
       <br />
       <div className="w-[95%] 800px:w-full 800px:max-w-[85%] mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-5">
           <div className="space-y-3">
             <h3 className="text-[20px] font-[600] text-black dark:text-white">About</h3>
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Our Story
@@ -23,10 +23,10 @@ const Footer = (props: Props) => {
               </li>
               <li>
                 <Link
-                  href="/policy"
+                  href="/signup"
                   className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                 >
-                  Privacy Policy
+                  SignUp
                 </Link>
               </li>
               <li>
@@ -100,20 +100,52 @@ const Footer = (props: Props) => {
               </li>
             </ul>
           </div>
+          <div className="space-y-3">
+            <h3 className="text-[20px] font-[600] text-black dark:text-white">The Company</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  href='/refund-policy'
+                  className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
+                >
+                  Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact-us"
+                  className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/Vishwacloudlabs"
+                  className="text-base text-black dark:text-gray-300 dark:hover:text-white"
+                  target="_blank"
+                >
+                  GitHub
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div>
             <h3 className="text-[20px] font-[600] text-black dark:text-white pb-3">Contact Info</h3>
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-            Call Us: 799-699-5959 | 799-699-7995
+              Call Us: 799-699-5959 | 799-699-7995
             </p>
-           
+
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2 pt-2">
-            Address: 3rd Floor, Krishna towers (behind Vijaya bank), Opp to Patanjali Shop, Marathahalli service Road, Marathahalli - 560037
+              Address: 3rd Floor, Krishna towers (behind Vijaya bank), Opp to Patanjali Shop, Marathahalli service Road, Marathahalli - 560037
             </p>
-         
+
             <p className="text-base text-black dark:text-gray-300 dark:hover:text-white  pb-2 pt-2">
-            Mail Us: info@vishwacloudlab.com
+              Mail Us: info@vishwacloudlab.com
             </p>
-            
+
           </div>
         </div>
         <br />
