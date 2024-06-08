@@ -7,6 +7,7 @@ import Courses from "./components/Route/Courses";
 import Reviews from "./components/Route/Reviews";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot/Chatbot"; // Import the Chatbot component
 
 interface Props { }
 
@@ -21,7 +22,6 @@ const Page: FC<Props> = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Vishwa Cloud Lab" />
         <meta name="keywords" content="Programming, Cloud Computing, cloud computing, security, vcl, vishwa cloud lab, vishwacloudlab, VCL, AWS, AZURE, github, cloud computing" />
-
         <meta property="og:title" content="Vishwa Cloud Lab" />
         <meta property="og:description" content="Empowering Minds, Transforming Futures" />
         <meta property="og:image" content="/client/app/favicon.ico" />
@@ -39,6 +39,7 @@ const Page: FC<Props> = (props) => {
       <Reviews />
       <FAQ />
       <Footer />
+      <Chatbot />
     </div>
   );
 };
