@@ -20,7 +20,15 @@ app.use(cookieParser());
 
 // cors => cross origin resource sharing
 app.use(
-  cors()
+  cors({
+    // origin: process.env.ORIGIN,
+    // origin: `[${process.env.ORIGIN}]`,
+    origin: ["https://vcl-lms-frontend.vercel.app"],
+    // origin: ["http://localhost:3000"],
+    // origin: ["https://www.vishwacloudlab.com"],
+    // origin: ["https://vcl-test-client.vercel.app"],
+    credentials: true,
+  })
 );
 
 // api requests limit
