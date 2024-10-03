@@ -23,15 +23,23 @@ app.use(
   cors({
     // origin: process.env.ORIGIN,
     // origin: `[${process.env.ORIGIN}]`,
+    // origin: [
+    //   "https://vcl-lms-frontend.vercel.app",
+    //   "https://www.vishwacloudlab.in/",
+    //   "https://vishwacloudlab.in/",
+    //   "vishwacloudlab.in/",
+    // ],
+    // origin: ["https://vcl-lms-frontend.vercel.app"],
     origin: [
+      "https://www.vcl-lms-frontend.vercel.app",
       "https://vcl-lms-frontend.vercel.app",
-      "https://www.vishwacloudlab.in/",
-      "https://vishwacloudlab.in/",
-      "vishwacloudlab.in/",
+      "https://vishwacloudlab.in",
+      "https://www.vishwacloudlab.in",
+      "http://localhost:3000",
     ],
     // origin: ["http://localhost:3000"],
+    // origin: ["https://www.vcl-lms-frontend.vercel.app"],
     // origin: ["https://www.vishwacloudlab.com"],
-    // origin: ["https://vcl-test-client.vercel.app"],
     credentials: true,
   })
 );
