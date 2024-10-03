@@ -26,6 +26,8 @@ app.use(
     origin: [
       "https://vcl-lms-frontend.vercel.app",
       "https://www.vishwacloudlab.in/",
+      "https://vishwacloudlab.in/",
+      "vishwacloudlab.in/",
     ],
     // origin: ["http://localhost:3000"],
     // origin: ["https://www.vishwacloudlab.com"],
