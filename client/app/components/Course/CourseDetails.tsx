@@ -217,8 +217,7 @@ const CourseDetails = ({
             </div>
           </div>
 
-
-          <div className="w-full 800px:w-[35%] relative">
+          {/* <div className="w-full 800px:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
@@ -250,7 +249,7 @@ const CourseDetails = ({
                   </div>
                 )}
               </div>
-                <p className="pb-1 text-black dark:text-white">Sales executive will get in touch asap !</p>
+              <p className="pb-1 text-black dark:text-white">Sales executive will get in touch asap !</p>
               <br />
               <p className="pb-1 text-black dark:text-white">
                 • Source code included
@@ -265,7 +264,61 @@ const CourseDetails = ({
                 • Premium Support
               </p>
             </div>
+
+          </div> */}
+
+          import Image from "next/image"; // Make sure Image is imported at the top
+
+          // ...
+
+          <div className="w-full 800px:w-[35%] relative">
+            <div className="sticky top-[100px] left-0 z-50 w-full">
+              {/* Replace CoursePlayer with Image */}
+              <Image
+                src={data?.thumbnail?.url} // Assuming the thumbnail URL is stored here
+                width={500} // Set your desired width
+                height={300} // Set your desired height
+                alt={data?.name} // Alt text for accessibility
+                className="rounded" // Add any classes as necessary
+              />
+              <div className="flex items-center">
+                <h1 className="pt-5 text-[25px] text-black dark:text-white">
+                  {data.price === 0 ? "Free" : "Rs " + data.price}
+                </h1>
+                <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
+                  Rs {data.estimatedPrice}
+                </h5>
+
+                <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
+                  {discountPercentengePrice}% Off
+                </h4>
+              </div>
+              <div className="flex items-center">
+                {isPurchased ? (
+                  <Link
+                    className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
+                    href={`/course-access/${data._id}`}
+                  >
+                    Enter to Course
+                  </Link>
+                ) : (
+                  <div
+                    className={`${styles.button} !w-[245px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
+                    onClick={handleOrder}
+                  >
+                    Contact Us
+                  </div>
+                )}
+              </div>
+              <p className="pb-1 text-black dark:text-white">Sales executive will get in touch asap!</p>
+              <br />
+              <p className="pb-1 text-black dark:text-white">• Source code included</p>
+              <p className="pb-1 text-black dark:text-white">• Full lifetime access</p>
+              <p className="pb-1 text-black dark:text-white">• Certificate of completion</p>
+              <p className="pb-3 800px:pb-1 text-black dark:text-white">• Premium Support</p>
+            </div>
           </div>
+
         </div>
       </div>
       <>

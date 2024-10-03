@@ -31,9 +31,8 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
         <div className="w-full flex items-center justify-between pt-2">
           <Ratings rating={item.ratings} />
           <h5
-            className={`text-black dark:text-[#fff] ${
-              isProfile && "hidden 800px:inline"
-            }`}
+            className={`text-black dark:text-[#fff] ${isProfile && "hidden 800px:inline"
+              }`}
           >
             {item.purchased} Students
           </h5>
@@ -44,7 +43,7 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
               {item.price === 0 ? "Free" : "Rs " + item.price}
             </h3>
             <h5 className="pl-3 text-[14px] mt-[-5px] line-through opacity-80 text-black dark:text-[#fff]">
-             Rs {item.estimatedPrice}
+              Rs {item.estimatedPrice}
             </h5>
           </div>
           <div className="flex items-center pb-3">
