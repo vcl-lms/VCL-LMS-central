@@ -23,7 +23,10 @@ app.use(
   cors({
     // origin: process.env.ORIGIN,
     // origin: `[${process.env.ORIGIN}]`,
-    origin: ["https://vcl-lms-frontend.vercel.app"],
+    origin: [
+      "https://vcl-lms-frontend.vercel.app",
+      "https://www.vishwacloudlab.in/",
+    ],
     // origin: ["http://localhost:3000"],
     // origin: ["https://www.vishwacloudlab.com"],
     // origin: ["https://vcl-test-client.vercel.app"],
