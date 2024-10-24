@@ -36,44 +36,120 @@ export const uploadCourse = CatchAsyncError(
 );
 
 // edit course
+// export const editCourse = CatchAsyncError(
+//   async (req: Request, res: Response, next: NextFunction) => {
+//     try {
+//       const data = req.body;
+
+//       const thumbnail = data.thumbnail;
+
+//       const courseId = req.params.id;
+
+//       const courseData = (await CourseModel.findById(courseId)) as any;
+
+//       if (thumbnail && !thumbnail.startsWith("https")) {
+//         await cloudinary.v2.uploader.destroy(courseData.thumbnail.public_id);
+
+//         const myCloud = await cloudinary.v2.uploader.upload(thumbnail, {
+//           folder: "courses",
+//         });
+
+//         data.thumbnail = {
+//           public_id: myCloud.public_id,
+//           url: myCloud.secure_url,
+//         };
+//       }
+
+//       if (thumbnail.startsWith("https")) {
+//         data.thumbnail = {
+//           public_id: courseData?.thumbnail.public_id,
+//           url: courseData?.thumbnail.url,
+//         };
+//       }
+
+//       const course = await CourseModel.findByIdAndUpdate(
+//         courseId,
+//         {
+//           $set: data,
+//         },
+//         { new: true } // Make sure to return the updated document
+//       );
+
+//       res.status(201).json({
+//         success: true,
+//         course,
+//       });
+//     } catch (error: any) {
+//       return next(new ErrorHandler(error.message, 500));
+//     }
+//   }
+// );
+
 export const editCourse = CatchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
-
-      const thumbnail = data.thumbnail;
-
+      const { thumbnail, courseContent } = data;
       const courseId = req.params.id;
 
-      const courseData = (await CourseModel.findById(courseId)) as any;
+      // Find the course by ID
+      const course = await CourseModel.findById(courseId);
+      if (!course) {
+        return next(new ErrorHandler("Course not found", 404));
+      }
 
+      // Cast the thumbnail to a more specific type to avoid TypeScript errors
+      const existingThumbnail = course.thumbnail as {
+        public_id: string;
+        url: string;
+      };
+
+      // Handle thumbnail update logic
       if (thumbnail && !thumbnail.startsWith("https")) {
-        await cloudinary.v2.uploader.destroy(courseData.thumbnail.public_id);
+        // If a new thumbnail is provided, delete the old one from cloudinary
+        if (existingThumbnail?.public_id) {
+          await cloudinary.v2.uploader.destroy(existingThumbnail.public_id);
+        }
 
+        // Upload the new thumbnail to cloudinary
         const myCloud = await cloudinary.v2.uploader.upload(thumbnail, {
           folder: "courses",
         });
 
-        data.thumbnail = {
+        // Update the thumbnail data with the new one
+        course.thumbnail = {
           public_id: myCloud.public_id,
           url: myCloud.secure_url,
         };
       }
 
-      if (thumbnail.startsWith("https")) {
-        data.thumbnail = {
-          public_id: courseData?.thumbnail.public_id,
-          url: courseData?.thumbnail.url,
+      // Retain existing thumbnail if the new one is already a URL
+      if (thumbnail && thumbnail.startsWith("https")) {
+        course.thumbnail = {
+          public_id: existingThumbnail.public_id,
+          url: existingThumbnail.url,
         };
       }
 
-      const course = await CourseModel.findByIdAndUpdate(
-        courseId,
-        {
-          $set: data,
-        },
-        { new: true } // Make sure to return the updated document
-      );
+      // Update other course fields if they exist in the request body
+      course.name = data.name || course.name;
+      course.description = data.description || course.description;
+      course.categories = data.categories || course.categories;
+      course.price = data.price || course.price;
+      course.estimatedPrice = data.estimatedPrice || course.estimatedPrice;
+      course.tags = data.tags || course.tags;
+      course.level = data.level || course.level;
+      course.demoUrl = data.demoUrl || course.demoUrl;
+      course.benefits = data.benefits || course.benefits;
+      course.prerequisites = data.prerequisites || course.prerequisites;
+
+      // Update course content if provided
+      if (courseContent) {
+        course.courseData = courseContent; // Replace the entire course content with new content
+      }
+
+      // Save the updated course
+      await course.save();
 
       res.status(201).json({
         success: true,
