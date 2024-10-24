@@ -25,6 +25,7 @@ const EditCourse:FC<Props> = ({id}) => {
   useEffect(() => {
     if (isSuccess) {
       toast.success("Course Updated successfully");
+      refetch();
       redirect("/admin/courses");
     }
     if (error) {
@@ -47,17 +48,16 @@ const EditCourse:FC<Props> = ({id}) => {
         estimatedPrice: editCourseData?.estimatedPrice,
         tags: editCourseData.tags,
         level: editCourseData.level,
-        categories:editCourseData.categories,
+        categories: editCourseData.categories,
         demoUrl: editCourseData.demoUrl,
         thumbnail: editCourseData?.thumbnail?.url,
-      })
+      });
       setBenefits(editCourseData.benefits);
       setPrerequisites(editCourseData.prerequisites);
       setCourseContentData(editCourseData.courseData);
     }
-  }, [editCourseData]);
-
-
+  }, [editCourseData]); // Make sure this depends on `editCourseData`
+  
   const [courseInfo, setCourseInfo] = useState({
     name: "",
     description:  "",

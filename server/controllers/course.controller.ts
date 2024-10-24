@@ -45,7 +45,7 @@ export const editCourse = CatchAsyncError(
 
       const courseId = req.params.id;
 
-      const courseData = await CourseModel.findById(courseId) as any;
+      const courseData = (await CourseModel.findById(courseId)) as any;
 
       if (thumbnail && !thumbnail.startsWith("https")) {
         await cloudinary.v2.uploader.destroy(courseData.thumbnail.public_id);
@@ -72,7 +72,7 @@ export const editCourse = CatchAsyncError(
         {
           $set: data,
         },
-        { new: true }
+        { new: true } // Make sure to return the updated document
       );
 
       res.status(201).json({
@@ -85,32 +85,25 @@ export const editCourse = CatchAsyncError(
   }
 );
 
-// get single course --- without purchasing
+// get single course without purchasing
 export const getSingleCourse = CatchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const courseId = req.params.id;
 
-      const isCacheExist = await redis.get(courseId);
+      // Directly fetch from MongoDB instead of checking Redis cache
+      const course = await CourseModel.findById(courseId).select(
+        "-courseData.videoUrl -courseData.suggestion -courseData.questions -courseData.links"
+      );
 
-      if (isCacheExist) {
-        const course = JSON.parse(isCacheExist);
-        res.status(200).json({
-          success: true,
-          course,
-        });
-      } else {
-        const course = await CourseModel.findById(req.params.id).select(
-          "-courseData.videoUrl -courseData.suggestion -courseData.questions -courseData.links"
-        );
-
-        await redis.set(courseId, JSON.stringify(course), "EX", 604800); // 7days
-
-        res.status(200).json({
-          success: true,
-          course,
-        });
+      if (!course) {
+        return next(new ErrorHandler("Course not found", 404));
       }
+
+      res.status(200).json({
+        success: true,
+        course,
+      });
     } catch (error: any) {
       return next(new ErrorHandler(error.message, 500));
     }
@@ -358,15 +351,12 @@ export const addReview = CatchAsyncError(
 
       await course?.save();
 
-      await redis.set(courseId, JSON.stringify(course), "EX", 604800); // 7days
-
       // create notification
       await NotificationModel.create({
         user: req.user?._id,
         title: "New Review Received",
         message: `${req.user?.name} has given a review in ${course?.name}`,
       });
-
 
       res.status(200).json({
         success: true,
@@ -415,7 +405,7 @@ export const addReplyToReview = CatchAsyncError(
       }
 
       review.commentReplies?.push(replyData);
-      
+
       await course?.save();
 
       await redis.set(courseId, JSON.stringify(course), "EX", 604800); // 7days

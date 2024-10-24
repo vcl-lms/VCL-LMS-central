@@ -1,6 +1,6 @@
 import { styles } from "@/app/styles/style";
 import React, { FC } from "react";
-import {AiOutlinePlusCircle} from "react-icons/ai";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { toast } from "react-hot-toast";
 
 type Props = {
@@ -21,7 +21,7 @@ const CourseData: FC<Props> = ({
   setActive,
 }) => {
 
-  const handleBenefitChange = (index: number, value: any) => {
+  const handleBenefitChange = (index: number, value: string) => {
     const updatedBenefits = [...benefits];
     updatedBenefits[index].title = value;
     setBenefits(updatedBenefits);
@@ -31,7 +31,12 @@ const CourseData: FC<Props> = ({
     setBenefits([...benefits, { title: "" }]);
   };
 
-  const handlePrerequisitesChange = (index: number, value: any) => {
+  const handleDeleteBenefit = (index: number) => {
+    const updatedBenefits = benefits.filter((_, i) => i !== index);
+    setBenefits(updatedBenefits);
+  };
+
+  const handlePrerequisitesChange = (index: number, value: string) => {
     const updatedPrerequisites = [...prerequisites];
     updatedPrerequisites[index].title = value;
     setPrerequisites(updatedPrerequisites);
@@ -41,6 +46,11 @@ const CourseData: FC<Props> = ({
     setPrerequisites([...prerequisites, { title: "" }]);
   };
 
+  const handleDeletePrerequisite = (index: number) => {
+    const updatedPrerequisites = prerequisites.filter((_, i) => i !== index);
+    setPrerequisites(updatedPrerequisites);
+  };
+
   const prevButton = () => {
     setActive(active - 1);
   }
@@ -48,72 +58,84 @@ const CourseData: FC<Props> = ({
   const handleOptions = () => {
     if (benefits[benefits.length - 1]?.title !== "" && prerequisites[prerequisites.length - 1]?.title !== "") {
       setActive(active + 1);
-    } else{
-        toast.error("Please fill the fields for go to next!")
+    } else {
+      toast.error("Please fill the fields to proceed to the next step!")
     }
   };
-  
+
 
   return (
     <div className="w-[80%] m-auto mt-24 block">
       <div>
-        <label className={`${styles.label} text-[20px]`} htmlFor="email">
-          What are the benefits for students in this course ?
+        <label className={`${styles.label} text-[20px]`} htmlFor="benefits">
+          What are the benefits for students in this course?
         </label>
         <br />
-        {benefits.map((benefit: any, index: number) => (
-          <input
-            type="text"
-            key={index}
-            name="Benefit"
-            placeholder="Example: You will be able to build a full stack LMS Platform..."
-            required
-            className={`${styles.input} my-2`}
-            value={benefit.title}
-            onChange={(e) => handleBenefitChange(index, e.target.value)}
-          />
+        {benefits.map((benefit, index) => (
+          <div key={index} className="flex items-center my-2">
+            <input
+              type="text"
+              name="Benefit"
+              placeholder="Example: You will be able to build a full stack LMS Platform..."
+              required
+              className={`${styles.input} flex-1`}
+              value={benefit.title}
+              onChange={(e) => handleBenefitChange(index, e.target.value)}
+            />
+            <AiOutlineMinusCircle
+              className="dark:text-white text-black ml-2 cursor-pointer"
+              onClick={() => handleDeleteBenefit(index)}
+              style={{ width: "24px", height: "24px" }}
+            />
+          </div>
         ))}
         <AiOutlinePlusCircle
-        className={"dark:text-white text-black"}
+          className="dark:text-white text-black"
           style={{ margin: "10px 0px", cursor: "pointer", width: "30px" }}
           onClick={handleAddBenefit}
         />
       </div>
 
       <div>
-        <label className={`${styles.label} text-[20px]`} htmlFor="email">
-        What are the prerequisites for starting this course ?
+        <label className={`${styles.label} text-[20px]`} htmlFor="prerequisites">
+          What are the prerequisites for starting this course?
         </label>
         <br />
-        {prerequisites.map((prerequisites: any, index: number) => (
-          <input
-            type="text"
-            key={index}
-            name="prerequisites"
-            placeholder="Example: You need basic knowledge of MERN stack"
-            required
-            className={`${styles.input} my-2`}
-            value={prerequisites.title}
-            onChange={(e) => handlePrerequisitesChange(index, e.target.value)}
-          />
+        {prerequisites.map((prerequisite, index) => (
+          <div key={index} className="flex items-center my-2">
+            <input
+              type="text"
+              name="prerequisite"
+              placeholder="Example: You need basic knowledge of the MERN stack"
+              required
+              className={`${styles.input} flex-1`}
+              value={prerequisite.title}
+              onChange={(e) => handlePrerequisitesChange(index, e.target.value)}
+            />
+            <AiOutlineMinusCircle
+              className="dark:text-white text-black ml-2 cursor-pointer"
+              onClick={() => handleDeletePrerequisite(index)}
+              style={{ width: "24px", height: "24px" }}
+            />
+          </div>
         ))}
         <AiOutlinePlusCircle
-        className={"dark:text-white text-black"}
+          className="dark:text-white text-black"
           style={{ margin: "10px 0px", cursor: "pointer", width: "30px" }}
-
           onClick={handleAddPrerequisites}
         />
       </div>
+
       <div className="w-full flex items-center justify-between">
-      <div
+        <div
           className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
-          onClick={() => prevButton()}
+          onClick={prevButton}
         >
           Prev
         </div>
         <div
           className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
-          onClick={() => handleOptions()}
+          onClick={handleOptions}
         >
           Next
         </div>
